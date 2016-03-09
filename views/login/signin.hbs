@@ -1,0 +1,53 @@
+<div class="col-md-4 col-md-offset-4">
+
+    <form class="form-horizontal" ng-submit="signIn()">
+
+        <h1>Please sign in</h1>
+
+        <div class="form-group">
+            <label for="email" class="sr-only col-md-12">Email address</label>
+
+            <div class="col-md-12">
+                <input type="email" id="email" name="email" ng-model="email" class="form-control"
+                       placeholder="Email address" required=""
+                       autofocus="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="password" class="sr-only col-md-12">Password</label>
+
+            <div class="col-md-12">
+                <input type="password" id="password" name="password" ng-model="password" class="form-control"
+                       placeholder="Password" required="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12">
+                <button class="btn btn-default btn-block" type="submit">Sign in</button>
+            </div>
+        </div>
+    </form>
+
+    <div class="row">
+        <div class="col-md-12 forgot-link">
+            <a href="/forgot">
+                Forgot password?
+            </a>
+        </div>
+    </div>
+
+    {{>buttons.social}}
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="nav-singinup">
+                Don't have an account!
+                <a href="/signup">
+                    Sign Up Here
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

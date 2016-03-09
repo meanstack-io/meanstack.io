@@ -1,0 +1,34 @@
+.buttons-social{
+  margin-bottom: 10px;
+  a{
+    border-radius: 0;
+  }
+  a:hover, a:focus, a:active{
+    opacity: .88;
+  }
+  .color-linkedin{
+    color: #fff;
+    background-color: #1B86BC;
+    border-color: #1B86BC;
+  }
+  .color-facebook{
+    color: #fff;
+    background-color: #44619D;
+    border-color: #44619D;
+  }
+  .color-twitter{
+    color: #fff;
+    background-color: #339CC3;
+    border-color: #339CC3;
+  }
+  .color-googleplus{
+    color: #fff;
+    background-color: #D73D32;
+    border-color: #D73D32;
+  }
+  .color-github{
+    color: #fff;
+    background-color: #202021;
+    border-color: #202021;
+  }
+}

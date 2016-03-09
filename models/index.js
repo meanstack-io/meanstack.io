@@ -3,7 +3,7 @@
 /**
  * Connection MongoDB
  */
-var settings = require('../configs/app'),
+var settings = require('../config'),
     mongoose = require('mongoose');
 
 mongoose.connect("mongodb://" + settings.dbconnect.user + ":" + settings.dbconnect.password + "@" + settings.dbconnect.host + ":" + settings.dbconnect.port + "/" + settings.dbconnect.base);

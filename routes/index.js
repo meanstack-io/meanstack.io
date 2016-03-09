@@ -1,21 +1,40 @@
 'use strict';
 
-var express = require('express'),
-    router = express.Router(),
-    settings = require('../configs/app');
+var index = require('./routers/index'),
+    view = require('./routers/view'),
+    account = require('./routers/account'),
+    account_signin = require('./routers/account/signin'),
+    account_forgot = require('./routers/account/forgot');
 
 /**
- * Router for page index AngularJS
+ * Initialize routes
+ * @param app
  */
-router.get('/:ever*?', function (req, res) {
-    res.render('index',
-        {
-            settings: {
-                name: settings.name,
-                version: settings.version
-            }
-        }
-    );
-});
+module.exports = function (app) {
 
-module.exports = router;
+    /**
+     * Load views AngularJS
+     */
+    app.use('/view', view);
+
+    /**
+     * Route sign up and logoff
+     */
+    app.use('/account', account);
+
+    /**
+     * Route for sign in
+     */
+    app.use('/account/signin', account_signin);
+
+    /**
+     * Route for forgot password
+     */
+    app.use('/account/forgot', account_forgot);
+
+    /**
+     * If no route is valid is sent to index.
+     */
+    app.all('*', index);
+
+};

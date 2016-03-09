@@ -1,6 +1,6 @@
 'use strict';
 
-var settings = require('../configs/app');
+var settings = require('../config');
 
 /**
  * Controls access to routes.

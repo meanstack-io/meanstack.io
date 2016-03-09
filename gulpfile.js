@@ -38,7 +38,7 @@ var argv = require('minimist')(process.argv.slice(2)),
             path.bower + 'angular-ui-router/release/angular-ui-router.js',
             path.bower + 'oclazyload/dist/ocLazyLoad.js',
             path.bower + 'angular-animate/angular-animate.js',
-            path.bower + 'bootstrap/dist/js/bootstrap.js',
+            path.bower + 'bootstrap-sass/assets/javascripts/bootstrap.js',
             path.bower + 'AngularJS-Toaster/toaster.js',
             //develop files
             path.angular + 'app.js',
@@ -51,16 +51,16 @@ var argv = require('minimist')(process.argv.slice(2)),
             path.angular + 'controllers/app/*.js'
         ],
         js_modules: [
-            path.angular + 'controllers/modules/*.js'
+            path.angular + 'controllers/modules/*.js',
+            path.angular + 'controllers/modules/login/*.js'
         ],
         css: [
-            path.bower + 'bootstrap/dist/css/bootstrap.css',
             path.bower + 'AngularJS-Toaster/toaster.scss',
-            //CSS SRC last file CSS for overwrite files above.
-            path.src + 'stylesheets/**/*.{scss,css}'
+            path.src + 'stylesheets/sass/main.scss',
+            path.src + 'stylesheets/styles/*.{scss,css}'
         ],
         fonts: [
-            path.bower + 'bootstrap/dist/fonts/*.{eot,svg,ttf,woff,woff2}',
+            path.bower + 'bootstrap-sass/assets/fonts/bootstrap/*.{eot,svg,ttf,woff,woff2}',
             path.src + 'fonts/*.{eot,svg,ttf,woff,woff2}'
         ],
         images: [

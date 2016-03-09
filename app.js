@@ -11,11 +11,10 @@ var express = require('express'),
     store = new session.MemoryStore(),
     passport = require('passport'),
     response = require('./modules/response'),
-    configPassport = require('./configs/passaport'),
-    auth = require('./modules/auth'),
-    configAuth = require('./configs/auth'),
-    routes = require('./routes/routes'),
-    settings = require('./configs/app'),
+    passportStrategies = require('./passport'),
+    policies = require('./routes/policies'),
+    routes = require('./routes'),
+    settings = require('./config'),
     hbs = require('express-handlebars').create(
         {
             extname: ".hbs",
@@ -55,17 +54,17 @@ app.use(response());
  */
 app.use(passport.initialize());
 app.use(passport.session());
-configPassport(passport);
+passportStrategies(passport);
 
 /**
  * Module Auth
  */
-configAuth(auth, app);
+policies(app);
 
 /**
  * Initialize Routes
  */
-routes.initialize(app);
+routes(app);
 
 /**
  * error handler

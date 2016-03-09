@@ -50,7 +50,7 @@ App.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
 
         .state('signup', {
             url: "/signup",
-            templateUrl: "/view/sign/up",
+            templateUrl: "/view/login/signup",
             data: {title: 'Sign Up'},
             controller: "signupController",
             resolve: {
@@ -58,7 +58,7 @@ App.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
                     return $ocLazyLoad.load({
                             insertBefore: '#load_controllers',
                             files: [
-                                path.controller('signController')
+                                path.controller('signupController')
                             ]
                         }
                     );
@@ -76,8 +76,8 @@ App.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
         })
 
         .state('signin', {
-            url: "/signin?:r",
-            templateUrl: "/view/sign/in",
+            url: "/signin",
+            templateUrl: "/view/login/signin",
             data: {title: 'Sign In'},
             controller: "signinController",
             resolve: {
@@ -85,7 +85,61 @@ App.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
                     return $ocLazyLoad.load({
                             insertBefore: '#load_controllers',
                             files: [
-                                path.controller('signController')
+                                path.controller('signinController')
+                            ]
+                        }
+                    );
+                }]
+            },
+            //Control access
+            access: {
+                //Only access page if not login.
+                auth: false
+                /**
+                 * Optional setting -> redirect: URL
+                 * Default config settings.auth.redirect.(logged for auth true || notLogged for auth false)
+                 */
+            }
+        })
+
+        .state('forgot', {
+            url: "/forgot",
+            templateUrl: "/view/login/forgot",
+            data: {title: 'Forgot account'},
+            controller: "forgotController",
+            resolve: {
+                deps: ['$ocLazyLoad', 'path', function ($ocLazyLoad, path) {
+                    return $ocLazyLoad.load({
+                            insertBefore: '#load_controllers',
+                            files: [
+                                path.controller('forgotController')
+                            ]
+                        }
+                    );
+                }]
+            },
+            //Control access
+            access: {
+                //Only access page if not login.
+                auth: false
+                /**
+                 * Optional setting -> redirect: URL
+                 * Default config settings.auth.redirect.(logged for auth true || notLogged for auth false)
+                 */
+            }
+        })
+
+        .state('forgotToken', {
+            url: "/forgot/:token",
+            templateUrl: "/view/login/forgot/reset",
+            data: {title: 'Reset your password'},
+            controller: "forgotResetPasswordController",
+            resolve: {
+                deps: ['$ocLazyLoad', 'path', function ($ocLazyLoad, path) {
+                    return $ocLazyLoad.load({
+                            insertBefore: '#load_controllers',
+                            files: [
+                                path.controller('forgotResetPasswordController')
                             ]
                         }
                     );

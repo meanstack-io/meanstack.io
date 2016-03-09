@@ -27,7 +27,7 @@
     "angular-ui-router": "~0.2.18",
     "angular-resource": "~1.5.0",
     "oclazyload": "~1.0.9",
-    "bootstrap": "^3.3.6",
-    "AngularJS-Toaster": "~1.2.0"
+    "AngularJS-Toaster": "~1.2.0",
+    "bootstrap-sass": "^3.3.6"
   }
 }

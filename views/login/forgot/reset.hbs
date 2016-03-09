@@ -1,0 +1,32 @@
+<div class="col-md-4 col-md-offset-4">
+
+    <form class="form-horizontal" ng-submit="resetPassword()">
+
+        <h1>Reset your password</h1>
+
+        <div class="form-group">
+            <label for="password" class="sr-only col-md-12">New password</label>
+
+            <div class="col-md-12">
+                <input type="password" id="password" name="password" ng-model="password" class="form-control"
+                       placeholder="New password" required=""
+                       autofocus="">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="repassword" class="sr-only col-md-12">Confirm new password</label>
+
+            <div class="col-md-12">
+                <input type="password" id="repassword" name="repassword" ng-model="repassword" class="form-control"
+                       placeholder="Confirm new password" required=""
+                       autofocus="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12">
+                <button class="btn btn-default btn-block" type="submit">Reset !</button>
+            </div>
+        </div>
+    </form>
+</div>

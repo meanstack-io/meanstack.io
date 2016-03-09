@@ -2,3 +2,4 @@
 node_modules/*
 public/dist/*
 bower_components/*
+config.js
