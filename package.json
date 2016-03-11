@@ -2,7 +2,9 @@
   "name": "meanstack",
   "description": "MEANStack bringing together the best of MEAN MongoDB, Express, AngularJS and Node.js",
   "version": "0.1.0",
-  "private": false,
+  "author": "Rafael Pegorari <rafapegorari@developscript.com>",
+  "license": "MIT",
+  "repository": "developscript/meanstack",
   "scripts": {
     "start": "nodemon ./bin/www"
   },
@@ -10,7 +12,6 @@
     "bcrypt": "^0.8.5",
     "body-parser": "~1.13.2",
     "bower": "^1.7.2",
-    "connect-flash": "^0.1.1",
     "cookie-parser": "~1.3.5",
     "debug": "~2.2.0",
     "express": "~4.13.1",
