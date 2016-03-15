@@ -9,6 +9,7 @@
  */
 var argv = require('minimist')(process.argv.slice(2)),
     gulp = require('gulp'),
+    settings = require('./config'),
     plumber = require('gulp-plumber'),
     rename = require('gulp-rename'),
     autoprefixer = require('gulp-autoprefixer'),
@@ -202,7 +203,7 @@ gulp.task('bs-reload', function () {
  */
 gulp.task('watch', ['default'], function () {
     browserSync.init({
-        proxy: "localhost:8080"
+        proxy: settings.server.hostname+":"+settings.server.port
     });
     gulp.watch("public/src/stylesheets/**/*.scss", ['styles']);
     gulp.watch("public/src/javascripts/**/*.js", ['scripts']);
