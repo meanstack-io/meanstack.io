@@ -10,8 +10,8 @@ App.config(['$interpolateProvider', function ($interpolateProvider) {
  * Config application
  */
 App.constant('settings', {
-    "minFiles": true,
     "path": {
+        "min": true,
         "controller": "/dist/javascripts/",
         "image": "/dist/images/",
         "style": "/dist/stylesheets/"
@@ -20,9 +20,9 @@ App.constant('settings', {
         redirect: {
             notLogged: "/signin",
             logged: "/user"
+        },
+        "cookie": {
+            flagAngularLogged: "login"
         }
-    },
-    "cookie": {
-        flagAngularLogged: "login"
     }
 });

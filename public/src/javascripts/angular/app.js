@@ -6,5 +6,7 @@ var App = angular.module("App", [
     "oc.lazyLoad",
     "ngResource",
     "toaster",
-    "ngAnimate"
+    "ngAnimate",
+    "AppPath",
+    "AppAuth"
 ]);
