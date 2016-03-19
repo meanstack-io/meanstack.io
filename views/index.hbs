@@ -14,12 +14,18 @@
 
 <main class="container">
 
-    <div ui-view></div>
+    <section class="row">
+        <div class="col-md-12" ui-view></div>
+    </section>
 
 </main>
 
-<footer class="footer-page">
-    Licensed under MIT. Copyright © 2016.  Version {{ settings.version }}
+<footer class="container">
+    <div class="row">
+        <div class="col-md-12 text-right" style="padding: 15px;">
+            Licensed under MIT. Copyright © 2016. Version {{ settings.version }}
+        </div>
+    </div>
 </footer>
 
 <toaster-container toaster-options="{'time-out': 8000, 'close-button':true}"></toaster-container>

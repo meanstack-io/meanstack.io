@@ -30,17 +30,17 @@ App.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
             }
         })
 
-        .state('documentation', {
-            url: "/documentation",
-            templateUrl: "/view/documentation/index",
-            data: {title: 'Documentation'},
-            controller: "documentationController",
+        .state('getting-started', {
+            url: "/getting-started",
+            templateUrl: "/view/gettingstarted/index",
+            data: {title: 'Getting Started'},
+            controller: "gettingstartedController",
             resolve: {
                 deps: ['$ocLazyLoad', 'path', function ($ocLazyLoad, path) {
                     return $ocLazyLoad.load({
                             insertBefore: '#load_controllers',
                             files: [
-                                path.controller('documentationController')
+                                path.controller('gettingstartedController')
                             ]
                         }
                     );
