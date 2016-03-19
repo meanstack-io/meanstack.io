@@ -1,6 +1,8 @@
 .buttons-social{
   margin-bottom: 10px;
   a{
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
     border-radius: 0;
   }
   a:hover, a:focus, a:active{
