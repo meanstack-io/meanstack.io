@@ -16,7 +16,6 @@ var settings = {
         password: '##########',
         base: '##########'
     },
-    env: 'dev',
     session: {
         secret: '##########'
     },
