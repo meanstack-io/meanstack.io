@@ -28,9 +28,18 @@ AppPath.provider("auth", [function () {
              */
             service.check = function () {
                 var cookieName = settings.auth.cookie.flagAngularLogged,
-                    regexp = new RegExp("(?:^" + cookieName + "|;\s*" + cookieName + ")=(.*?)(?:;|$)", "g"),
-                    result = regexp.exec(document.cookie);
-                return (result === null) ? false : ((result[1]).valueOf() === 'true');
+                    getCookieValues = function (cookie) {
+                        var cookieArray = cookie.split('=');
+                        return cookieArray[1].trim();
+                    },
+                    getCookieNames = function (cookie) {
+                        var cookieArray = cookie.split('=');
+                        return cookieArray[0].trim();
+                    },
+                    cookies = document.cookie.split(';'),
+                    cookieValue = cookies.map(getCookieValues)[cookies.map(getCookieNames).indexOf(cookieName)];
+
+                return (((cookieValue === undefined) ? null : cookieValue) === "true");
             };
 
             /**
