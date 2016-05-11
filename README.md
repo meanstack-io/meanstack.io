@@ -17,15 +17,13 @@ Is a solution full-stack JavaScript, based on MongoDB, Express, AngularJS, Node.
 
 Are some of the packages that we use to make this dream come true.
 
-## Getting Started
-
-### Prerequisites
+## Prerequisites
 Install Node.js e MongoDB.
 
-#### Install Node.js
+### Install Node.js
 Installing Node.js via package manager access <a href="https://nodejs.org/en/download/package-manager/">https://nodejs.org/en/download/package-manager/</a>
 
-##### Notes
+#### Notes
 if you use Debian and Ubuntu based Linux distributions be sure to install **build-essential**.
 ```bash
 $ sudo apt-get install -y build-essential
@@ -36,66 +34,68 @@ if you use Enterprise Linux and Fedora be sure to install **gcc-c++ make**.
 $ yum install gcc-c++ make
 ```
 
-#### Install MongoDB
+### Install MongoDB
 Installing MongoDB access <a href="https://docs.mongodb.org/manual/installation/">https://docs.mongodb.org/manual/installation/</a>
 
-##### Note
+#### Note
 If you've never worked with a MongoDB read in your documentation before you install it, official documentation access, <a href="https://docs.mongodb.org/manual/">https://docs.mongodb.org/manual/</a>
 
-### Installation
+## Installation
 
-#### Before installing
 Before you begin installing MEANStack we will update the NPM and soon after installing Gulp, Bower and nodemon in the global scope.
 
-##### Updating NPM
+### Updating NPM
 ```bash
 $ npm update -g npm
 ```
 
-##### Install Gulp
+### Install Gulp
 ```bash
 $ npm install -g gulp
 ```
 
-##### Install Bower
+### Install Bower
 ```bash
 $ npm install -g bower
 ```
 
-##### Install Nodemon
+### Install Nodemon
 Nodemon is a utility that will monitor for any changes in your source and automatically restart your server. Perfect for development. Install it using npm.
 ```bash
 $ npm install -g nodemon
 ```
 
-##### Note
+#### Note
 If you already have the Gulp and Bower recommend updates them.
 ```bash
 $ npm update -g gulp bower
 ```
 
-#### Install
-**The first step** is to clone the repository GitHub.
+### The first step
+Clone the repository GitHub.
 ```bash
 $ git clone git@github.com:developscript/meanstack.io.git
 ```
 
-**The second step** is to install the back-end dependencies.
+### The second step
+Install the back-end dependencies.
 ```bash
 $ npm install
 ```
 
-**The third step** is to install the front-end dependencies.
+### The third step
+Install the front-end dependencies.
 ```bash
 $ bower install
 ```
 
-**The fourth step** is to configure the application. For this we have a sample file "config/config.example.js" copy and rename it to "config/config-development.js". 
+### The fourth step
+Configure the application. For this we have a sample file "config/config.example.js" copy and rename it to "config/config-development.js". 
 ```bash
 $ cp config/config.example.js config/config-development.js
 ```
 
-##### Configuration file.
+#### Configuration file.
 The file "config/config-development.js" represents the configuration of your environment. What ? within package.json we have:
 ```js
 "start": "NODE_ENV=development nodemon ./bin/www"
@@ -105,12 +105,14 @@ The "NODE_ENV" property sets which environment setting will be used. Example:
 "start": "NODE_ENV=production nodemon ./bin/www" // Its configuration file is "config/config-production.js".
 ```
 
-**The fifth step** is to run Gulp.
+### The fifth step
+Run Gulp.
 ```bash
 $ gulp
 ```
 
-**The sixth step** is to start the application.
+### The sixth step
+Start the application.
 ```bash
 $ npm start 
 ```
