@@ -1,0 +1,31 @@
+.btn {
+  &.linkedin {
+    color: #fff;
+    background-color: #1B86BC;
+    border-color: #1B86BC;
+  }
+
+  &.facebook {
+    color: #fff;
+    background-color: #44619D;
+    border-color: #44619D;
+  }
+
+  &.twitter {
+    color: #fff;
+    background-color: #339CC3;
+    border-color: #339CC3;
+  }
+
+  &.googleplus {
+    color: #fff;
+    background-color: #D73D32;
+    border-color: #D73D32;
+  }
+
+  &.github {
+    color: #fff;
+    background-color: #202021;
+    border-color: #202021;
+  }
+}

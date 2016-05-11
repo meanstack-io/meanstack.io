@@ -1,6 +1,9 @@
-.idea/*
-node_modules/*
-public/dist/*
-bower_components/*
-/config.js
-/config/*
+.idea
+node_modules
+!node_modules/app
+!node_modules/config
+!node_modules/modules
+!node_modules/resources
+public
+resources/assets/bower
+config/config-*.js

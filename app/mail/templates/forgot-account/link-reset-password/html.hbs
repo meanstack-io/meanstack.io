@@ -1,0 +1,62 @@
+<table cellspacing="0" cellpadding="0" style="width:100%" align="center" bgcolor="#FFFFFF" border="0">
+    <tr>
+        <td>
+            <table cellspacing="0" cellpadding="0" style="padding:10px 30px 10px 30px;max-width:600px" align="center"
+                   border="0">
+                <tbody style="font-family:arial,serif;">
+                <tr>
+                    <td style="font-size:22px;color:#545454">
+                        {{ settings.name }}
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size:18px;color:#545454">
+                        {{ settings.description }}
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size:14px;color:#4C4C4C;padding-top:30px">
+                        Hello, <span style="font-weight:bold">{{ user.username }}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size:14px;color:#4C4C4C;">
+                        Reset password access <a href="{{ settings.server.url }}forgot/{{ user.resetPassword.token }}"> click here! </a>.
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size:14px;color:#4C4C4C;;padding-bottom:60px">
+                        Or copy and paste this link into your browser. {{ settings.server.url }}forgot/{{ user.resetPassword.token }}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table cellspacing="0" cellpadding="0" style="width:100%;background-color:#e7e7e7;margin-bottom: 20px;" align="center"
+                   border="0">
+                <tr>
+                    <td>
+                        <table cellspacing="0" style="width:100%;max-width:600px;padding:10px 30px 10px 30px"
+                               align="center" cellpadding="0" border="0">
+                            <tbody style="font-family:arial,serif;font-size:14px;color:#777;text-align:center">
+                            <tr>
+                                <td >
+                                    {{ settings.name }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:12px;">
+                                    {{ settings.description }}
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>

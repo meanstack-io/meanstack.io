@@ -3,29 +3,32 @@
 var express = require('express'),
     app = express(),
     path = require('path'),
+    compression = require('compression'),
     favicon = require('serve-favicon'),
     logger = require('morgan'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
     session = require('express-session'),
     store = new session.MemoryStore(),
-    passport = require('passport'),
-    response = require('./modules/response'),
-    passportStrategies = require('./passport'),
-    policies = require('./routes/policies'),
-    routes = require('./routes'),
-    settings = require('./config'),
-    hbs = require('express-handlebars').create(
+    middleware = require('app/http/middleware'),
+    routes = require('app/http/routes'),
+    settings = require('config'),
+    hbs = require('express-hbs'),
+    hbsEngine = hbs.express4(
         {
             extname: ".hbs",
-            partialsDir: path.join(__dirname, 'views/partials/')
+            layoutsDir: path.join(__dirname, 'resources/views/layouts/'),
+            partialsDir: path.join(__dirname, 'resources/views/partials/')
         }
-    );
+    ),
+    hbsHelpers = require('app/helpers');
 
-app.engine('hbs', hbs.engine);
+app.engine('hbs', hbsEngine);
 app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, 'views'));
-app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+hbsHelpers();
+app.use(compression());
+app.set('views', path.join(__dirname, 'resources/views'));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.png')));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -38,36 +41,26 @@ app.use(session(
             saveUninitialized: false,
             store: store,
             cookie: {
-                httpOnly: true, maxAge: 2419200000
+                httpOnly: true,
+                maxAge: (typeof settings.cookie.maxAge !== 'undefined')? settings.cookie.maxAge : 2419200000
             }
         }
     )
 );
 
 /**
- * Module Response
+ * Init Middleware.
  */
-app.use(response());
+middleware(app);
+
 
 /**
- * Init Passaport
- */
-app.use(passport.initialize());
-app.use(passport.session());
-passportStrategies(passport);
-
-/**
- * Module Auth
- */
-policies(app);
-
-/**
- * Initialize Routes
+ * Initialize Routes.
  */
 routes(app);
 
 /**
- * error handler
+ * Error handler.
  */
 app.use(function (err, req, res, next) {
     res.status(err.status || 500);
