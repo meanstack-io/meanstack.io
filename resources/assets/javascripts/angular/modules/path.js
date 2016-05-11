@@ -54,7 +54,7 @@ AppPath.provider("path", [function () {
     this.$get = ['settings',
         function (settings) {
             var service = {},
-                min = (typeof settings.path.min === true);
+                min = (typeof settings.path.min === 'undefined' || settings.path.min === true);
                 extension = function (type) {
                     return ((min) ? '.min' : '') + '.' + type;
                 };
