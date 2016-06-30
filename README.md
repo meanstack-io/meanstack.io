@@ -74,7 +74,7 @@ $ npm update -g gulp bower
 ### The first step
 Clone the repository GitHub.
 ```bash
-$ git clone git@github.com:developscript/meanstack.io.git
+$ git clone git@github.com:meanstack-io/meanstack.io.git
 ```
 
 ### The second step
@@ -127,4 +127,4 @@ Documentation can be found on the [meanstack.io](http://meanstack.io/documentati
 
 ## Copyright & License
 
-Copyright © 2016 Developscript - Licensed under [MIT](https://github.com/developscript/meanstack.io/blob/master/License).
+Copyright © 2016 MEANStack.io - Licensed under [MIT](https://github.com/meanstack-io/meanstack.io/blob/master/License).
