@@ -1,0 +1,41 @@
+<div class="jumbotron">
+    <h1>
+        {{ settings.name }}
+        <small>My Account</small>
+    </h1>
+
+    <p>
+        bringing together the best of MEAN MongoDB, Express, AngularJS and Node.js
+    </p>
+</div>
+
+<div class="alert alert-info" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+
+    <h1 class="text-center">
+        {{{ welcome }}}
+    </h1>
+
+    <h3 class="text-center">
+        <small>{{ date }}</small>
+    </h3>
+</div>
+
+<p>
+    <b>Logged with:</b>
+    {{#if user.oauth.provider}}
+        <i class="fa fa-{{ user.oauth.provider }}" aria-hidden="true"></i> - {{ ucfirst user.oauth.provider }}
+    {{^}}
+        <i class="fa fa-sign-in" aria-hidden="true"></i> Local strategy
+    {{/if}}
+</p>
+
+<p>
+    <b>Username:</b> {{ user.username }}
+</p>
+
+<p>
+    <b>E-Mail:</b> {{ user.email }}
+</p>

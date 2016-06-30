@@ -1,0 +1,61 @@
+<header class="header-page" ng-controller="headerController" xmlns="http://www.w3.org/1999/html">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#taggleNav"
+                        aria-expanded="false">
+
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a class="navbar-brand" href="/">{{ settings.name }}</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="taggleNav">
+                <ul class="nav navbar-nav">
+                    <li ng-class="{ active: isActive('/')}"><a href="/">Home</a></li>
+
+                    <li ng-class="{ active: isActive('/about')}"><a href="/about">About</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right" ng-if="!login()">
+                    <li ng-class="{ active: isActive('/signup')}"><a href="/signup">Sign up</a></li>
+
+                    <li ng-class="{ active: isActive('/signin')}"><a href="/signin">Sign in</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right" ng-if="login()">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">
+                            <i class="glyphicon glyphicon-user"></i>
+                            <span compile="username">{{ user.username }}</span>
+                            <span class="caret"></span>
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="/myaccount">
+                                    <i class="glyphicon glyphicon-cog"></i>
+                                    My Account
+                                </a>
+                            </li>
+
+                            <li role="separator" class="divider"></li>
+
+                            <li>
+                                <a href="javascript:;" ng-click="logout()">
+                                    <i class="glyphicon glyphicon-off"></i>
+                                    Logoff
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

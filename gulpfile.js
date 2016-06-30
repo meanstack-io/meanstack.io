@@ -26,10 +26,10 @@ var argv = require('minimist')(process.argv.slice(2)),
     browserSync = require('browser-sync'),
     runSequence = require('run-sequence'),
     path = {
-        bower: __dirname + '/bower_components/',
-        dist: __dirname + '/public/dist/',
-        src: __dirname + '/public/src/',
-        angular: __dirname + '/public/src/javascripts/angular/'
+        bower: __dirname + '/resources/assets/bower/',
+        dist: __dirname + '/public/',
+        src: __dirname + '/resources/assets/',
+        angular: __dirname + '/resources/assets/javascripts/angular/'
     },
     files = {
         js: [
@@ -54,25 +54,31 @@ var argv = require('minimist')(process.argv.slice(2)),
             path.angular + 'controllers/app/*.js'
         ],
         js_modules: [
-            path.angular + 'controllers/modules/*.js',
-            path.angular + 'controllers/modules/login/*.js'
+            path.angular + 'controllers/partials/*.js',
+            path.angular + 'controllers/partials/login/*.js'
         ],
         css: [
             path.bower + 'AngularJS-Toaster/toaster.scss',
+            path.bower + 'font-awesome/scss/font-awesome.scss',
             path.src + 'stylesheets/sass/main.scss',
-            path.src + 'stylesheets/styles/*.{scss,css}'
+            path.src + 'stylesheets/styles/**/*.{scss,css}'
         ],
         fonts: [
-            path.bower + 'bootstrap-sass/assets/fonts/bootstrap/*.{eot,svg,ttf,woff,woff2}',
-            path.src + 'fonts/*.{eot,svg,ttf,woff,woff2}'
+            path.bower + 'bootstrap-sass/assets/fonts/bootstrap/*.{otf,eot,svg,ttf,woff,woff2}',
+            path.bower + 'font-awesome/fonts/*.{otf,eot,svg,ttf,woff,woff2}',
+            path.src + 'fonts/**/*.{otf,eot,svg,ttf,woff,woff2}'
         ],
         images: [
-            path.src + 'images/*.{png,jpg,jpeg}'
+            path.src + 'images/**/*.{png,jpg,jpeg}'
+        ],
+        icons: [
+            path.src + 'icons/*'
         ]
     },
     /**
      * Ignore files bower
      * Used - Not validation in jshint
+     *
      * @param file
      * @returns {boolean}
      */
@@ -82,6 +88,7 @@ var argv = require('minimist')(process.argv.slice(2)),
     /**
      * Ignore files js_modules
      * Used - Not concat with main script
+     *
      * @param file
      * @returns {boolean}
      */
@@ -94,24 +101,42 @@ var argv = require('minimist')(process.argv.slice(2)),
             }
         }
         return true;
+    },
+    /**
+     * Compress images files.
+     *
+     * @param files
+     * @param dist
+     */
+    compressImages = function (files, dist, level) {
+        var optimizationLevel = (typeof level === 'undefined') ? 3 : level;
+
+        gulp.src(files)
+            .pipe(cache(
+                imagemin(
+                    {
+                        optimizationLevel: optimizationLevel,
+                        progressive: true,
+                        interlaced: true
+                    }
+                )
+            ))
+            .pipe(gulp.dest(dist))
+            .pipe(browserSync.reload({stream: true}))
     };
 
 /**
  * Compress Images
  */
 gulp.task('images', function () {
-    gulp.src(files.images)
-        .pipe(cache(
-            imagemin(
-                {
-                    optimizationLevel: 3,
-                    progressive: true,
-                    interlaced: true
-                }
-            )
-        ))
-        .pipe(gulp.dest(path.dist + 'images/'))
-        .pipe(browserSync.reload({stream: true}))
+    compressImages(files.images, path.dist + 'images/');
+});
+
+/**
+ * Compress Icons
+ */
+gulp.task('icons', function () {
+    compressImages(files.icons, path.dist + '/');
 });
 
 /**
@@ -125,8 +150,8 @@ gulp.task('styles', function () {
                 this.emit('end');
             }
         }))
-        .pipe(concat('main.css'))
         .pipe(sass())
+        .pipe(concat('main.css'))
         .pipe(autoprefixer('last 2 versions'))
         .pipe(gulpif(!argv.production, gulp.dest(path.dist + 'stylesheets/')))
         .pipe(rename({suffix: '.min'}))
@@ -180,7 +205,7 @@ gulp.task('build', function (callback) {
     runSequence(
         'scripts',
         'styles',
-        ['fonts', 'images'],
+        ['fonts', 'images', 'icons'],
         callback);
 });
 
@@ -203,11 +228,11 @@ gulp.task('bs-reload', function () {
  */
 gulp.task('watch', ['default'], function () {
     browserSync.init({
-        proxy: settings.server.hostname+":"+settings.server.port
+        proxy: settings.server.hostname + ":" + settings.server.port
     });
-    gulp.watch("public/src/stylesheets/**/*.scss", ['styles']);
-    gulp.watch("public/src/javascripts/**/*.js", ['scripts']);
-    gulp.watch("public/src/images/**/*", ['images']);
-    gulp.watch("public/src/fonts/*", ['fonts']);
-    gulp.watch("*.hbs", ['bs-reload']);
+    gulp.watch(path.src + "/stylesheets/**/**.{css,scss}", ['styles']);
+    gulp.watch(path.src + "/javascripts/**/**.js", ['scripts']);
+    gulp.watch(path.src + "/images/**/**", ['images']);
+    gulp.watch(path.src + "/fonts/**/**", ['fonts']);
+    gulp.watch("**.hbs", ['bs-reload']);
 });
