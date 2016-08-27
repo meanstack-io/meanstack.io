@@ -1,13 +1,9 @@
 /**
- * Modules for APP AngularJS
+ * Application AngularJS
  */
-var App;
-App = angular.module("App", [
-    "ui.router",
-    "oc.lazyLoad",
-    "ngResource",
-    "toaster",
-    "ngAnimate",
-    "AppPath",
-    "AppAuth"
+angular.module('App', [
+    'meanstack.path',
+    'meanstack.route',
+    'ui.router',
+    'oc.lazyLoad'
 ]);

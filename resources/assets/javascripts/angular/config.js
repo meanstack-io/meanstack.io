@@ -1,28 +1,23 @@
 /**
- * Alter symbol of AngularJS because Handlebars possesses the same symbol.
- */
-App.config(['$interpolateProvider', function ($interpolateProvider) {
-    $interpolateProvider.startSymbol('{[{');
-    $interpolateProvider.endSymbol('}]}');
-}]);
-
-/**
  * Config application
  */
-App.constant('settings', {
+App.constant('config', {
+    /**
+     * Configuration module meanstack.path
+     */
     path: {
-        min: true,
-        controller: "/javascripts/",
-        image: "/images/",
-        style: "/stylesheets/"
+        minify: false,
+        scripts: '/javascripts/',
+        controllers: '/javascripts/controllers/',
+        images: '/images/',
+        styles: '/stylesheets/',
+        libs: '/libs/'
     },
-    auth: {
-        redirect: {
-            notLogged: "/signin",
-            logged: "/myaccount"
-        },
-        cookie: {
-            flagAngularLogged: "login"
-        }
+
+    /**
+     * Configuration module meanstack.route
+     */
+    route: {
+        namespace: 'api'
     }
 });

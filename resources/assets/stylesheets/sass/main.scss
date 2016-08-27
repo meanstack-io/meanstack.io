@@ -1,12 +1,10 @@
 @import "common/variables";
 
+// Dependencies
 @import "../../bower/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 
 @import "common/global";
-@import "components/blocks";
+@import "components/sections";
 @import "components/buttons";
-@import "components/forms";
 @import "layouts/header";
 @import "layouts/footer";
-
-@import "pages/home";

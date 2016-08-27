@@ -1,9 +1,10 @@
 {
   "name": "MEANStack.io",
+  "version": "0.3.0",
   "description": "MEANStack.io bringing together the best of MEAN MongoDB, Express, AngularJS and Node.js",
   "main": "",
   "authors": [
-    "Rafael Pegorari <rafapegorari@developscript.com>"
+    "Rafael Pegorari <rafapegorari@gmail.com>"
   ],
   "license": "MIT",
   "moduleType": [
@@ -22,13 +23,10 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "~2.2.0",
     "angular": "~1.5.0",
     "angular-ui-router": "~0.2.18",
-    "angular-resource": "~1.5.0",
-    "oclazyload": "~1.0.9",
-    "AngularJS-Toaster": "~1.2.0",
     "bootstrap-sass": "^3.3.6",
-    "font-awesome": "fontawesome#^4.6.2"
+    "jquery": "~2.2.0",
+    "oclazyload": "~1.0.9"
   }
 }

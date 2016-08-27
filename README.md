@@ -1,129 +1,106 @@
 # MEANStack.io
 *bringing together the best of MEAN MongoDB, Express, AngularJS and Node.js*
 
-Is a solution full-stack JavaScript, based on MongoDB, Express, AngularJS, Node.js and another stack of packages.
+Is a solution full-stack JavaScript, develop on MongoDB, Express, AngularJS, Node.js and another stack of packages.
 
-* Stack of packages
- * Gulp gulp-sass, gulp-minify-css, gulp-imagemin, gulp-uglify, gulp-jshint, browser-sync and more...
- * Bower package manager. Used to manage front-end packages.
- * Handlebars template manager.
- * Mongoose MongoDB object modeling tool.
- * Nodemailer module to send e-mails with Node.js.
- * Passporte authentication middleware for Node.js. With passport-facebook, passport-github, passport-google-oauth, passport-linkedin-oauth2, passport-twitter and passport-local form to login strategy.
- * jQuery JavaScript Library.
- * AngularUI Router Routing framework for AngularJS.
- * ocLazyLoad Lazy load modules & components in AngularJS.
- * Bootstrap for Sass is Bootstrap...
-
-Are some of the packages that we use to make this dream come true.
+MEANStack is a web application framework with strategy geared to facilitate development.
 
 ## Prerequisites
-Install Node.js e MongoDB.
+Node.js, MongoDB, Gulp, Bower, Nodemon and MEANStack-Client.
 
 ### Install Node.js
 Installing Node.js via package manager access <a href="https://nodejs.org/en/download/package-manager/">https://nodejs.org/en/download/package-manager/</a>
 
-#### Notes
-if you use Debian and Ubuntu based Linux distributions be sure to install **build-essential**.
-```bash
-$ sudo apt-get install -y build-essential
-```
-
-if you use Enterprise Linux and Fedora be sure to install **gcc-c++ make**.
-```bash
-$ yum install gcc-c++ make
-```
-
 ### Install MongoDB
 Installing MongoDB access <a href="https://docs.mongodb.org/manual/installation/">https://docs.mongodb.org/manual/installation/</a>
 
-#### Note
-If you've never worked with a MongoDB read in your documentation before you install it, official documentation access, <a href="https://docs.mongodb.org/manual/">https://docs.mongodb.org/manual/</a>
-
-## Installation
-
-Before you begin installing MEANStack we will update the NPM and soon after installing Gulp, Bower and nodemon in the global scope.
-
-### Updating NPM
-```bash
+### Update NPM
+Before we installed the Gulp, Bower and Nodemon we recommend updating the NPM.
+```
 $ npm update -g npm
 ```
 
 ### Install Gulp
-```bash
+```
 $ npm install -g gulp
 ```
 
 ### Install Bower
-```bash
+```
 $ npm install -g bower
 ```
 
 ### Install Nodemon
-Nodemon is a utility that will monitor for any changes in your source and automatically restart your server. Perfect for development. Install it using npm.
-```bash
+Nodemon is a utility that will monitor for any changes in your source and automatically restart your server. Perfect for development.
+```
 $ npm install -g nodemon
 ```
 
-#### Note
-If you already have the Gulp and Bower recommend updates them.
-```bash
-$ npm update -g gulp bower
+### Install MEANStack-Client
+```
+$ npm install -g meanstack-cli
 ```
 
-### The first step
-Clone the repository GitHub.
-```bash
-$ git clone git@github.com:meanstack-io/meanstack.io.git
+## Getting Started
+Two steps up its application.
+
+###Create your application
+```
+$ meanstack new <path_app>
+```
+Will be cloned the repository "https://github.com/meanstack-io/meanstack.io" after will run "npm install", "bower install", "cp .env.example.js .env.js" and "gulp". 
+
+
+### Listening server
+Serve the application.
+```
+$ meanstack serve
 ```
 
-### The second step
-Install the back-end dependencies.
-```bash
-$ npm install
-```
+### Configuration
+All the MEANStack framework configuration is in the "config" directory.
 
-### The third step
-Install the front-end dependencies.
-```bash
-$ bower install
-```
-
-### The fourth step
-Configure the application. For this we have a sample file "config/config.example.js" copy and rename it to "config/config-development.js". 
-```bash
-$ cp config/config.example.js config/config-development.js
-```
-
-#### Configuration file.
-The file "config/config-development.js" represents the configuration of your environment. What ? within package.json we have:
+#### Accessing Configuration Values
 ```js
-"start": "NODE_ENV=development nodemon ./bin/www"
+$value = require('meanstack').config.get('mail').smtp;
 ```
-The "NODE_ENV" property sets which environment setting will be used. Example:
+Where "mail" is the configuration file and "stmp" the object.
+
+### Environment Configuration
+By default the installation of your application is copied the file "env.example.js" and pasted with the name "env.js".
+
+Your path can be configured in "config/app.js" => env.
+
+### Database
+By default the connection provider with MongoDB is disabled by not being configured the connection.
+
+#### Configure
+Edit the file "env.js" stating the details of your connection.
+
+#### Enable provider
+Edit the file "config/app.js" => providers, uncomment the line 'meanstack/lib/database/DatabaseServiceProvider'.
+
+Result
 ```js
-"start": "NODE_ENV=production nodemon ./bin/www" // Its configuration file is "config/config-production.js".
+'providers': [
+    ...
+    'meanstack/lib/bodyParser/BodyParserServiceProvider',
+    'meanstack/lib/cookieParser/CookieParserServiceProvider',
+    'meanstack/lib/database/DatabaseServiceProvider', // <= Uncomment.
+    'meanstack/lib/response/ResponseServiceProvider',
+    ...
+]
 ```
-
-### The fifth step
-Run Gulp.
-```bash
-$ gulp
-```
-
-### The sixth step
-Start the application.
-```bash
-$ npm start 
-```
-
-If you want to use the Gulp with Browsersync
-```bash
-$ gulp watch
-```
-
 ## Documentation
-Documentation can be found on the [meanstack.io](http://meanstack.io/documentation)
+Documentation can be found on the [MEANStack.io](http://meanstack.io)
+
+## Repositories
+
+MEANStack.io (Starter) - https://github.com/meanstack-io/meanstack.io
+
+MEANStack (Kernel) - https://github.com/meanstack-io/meanstack
+
+MEANStack-Client (Client) - https://github.com/meanstack-io/meanstack-cli
 
 ## Copyright & License
 
