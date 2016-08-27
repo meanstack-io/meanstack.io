@@ -1,7 +1,8 @@
-App.config(['config', 'pathProvider', function (config, pathProvider) {
+angular.module("App")
+    .config(['config', 'pathProvider', function (config, pathProvider) {
 
-    /**
-     * Config path module
-     */
-    pathProvider.config(config.path);
-}]);
+        /**
+         * Config path module
+         */
+        pathProvider.config(config.path);
+    }]);
