@@ -25,7 +25,7 @@
   "homepage": "http://meanstack.io",
   "dependencies": {
     "bower": "^1.7.2",
-    "meanstack": "^0.3.3-dev",
+    "meanstack": "^0.3.5",
     "passport-local": "^1.0.0"
   },
   "devDependencies": {
