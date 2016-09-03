@@ -57,6 +57,10 @@ Serve the application.
 $ meanstack serve
 ```
 
+### Common installation errors
+Some common errors already solved. An error has occurred in the installation? Please let us know.
+https://github.com/meanstack-io/meanstack.io/wiki/Common-installation-errors
+
 ### Configuration
 All the MEANStack framework configuration is in the "config" directory.
 
