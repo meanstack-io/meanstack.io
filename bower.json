@@ -1,12 +1,12 @@
 {
   "name": "meanstack.io",
-  "version": "0.3.5",
   "description": "MEANStack.io bringing together the best of MEAN MongoDB, Express, AngularJS and Node.js",
   "main": "",
   "authors": [
     "Rafael Pegorari <rafapegorari@gmail.com>"
   ],
   "license": "MIT",
+  "private": true,
   "moduleType": [
     "amd",
     "es6",
