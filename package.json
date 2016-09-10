@@ -1,12 +1,13 @@
 {
   "name": "meanstack.io",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "description": "MEANStack.io bringing together the best of MEAN MongoDB, Express, AngularJS and Node.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/meanstack-io/meanstack.io.git"
   },
   "scripts": {
+    "build": "bower install && gulp",
     "start": "NODE_ENV=development nodemon index",
     "test": "mocha"
   },
@@ -24,9 +25,7 @@
   },
   "homepage": "http://meanstack.io",
   "dependencies": {
-    "bower": "^1.7.2",
-    "meanstack": "^0.3.5",
-    "passport-local": "^1.0.0"
+    "meanstack": "^0.3.6"
   },
   "devDependencies": {
     "chai": "^3.5.0",
