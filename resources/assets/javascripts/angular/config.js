@@ -1,7 +1,7 @@
 /**
  * Config application
  */
-angular.module("App")
+angular.module('App')
     .constant('config', {
         /**
          * Configuration module meanstack.path

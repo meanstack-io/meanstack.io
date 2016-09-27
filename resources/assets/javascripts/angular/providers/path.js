@@ -1,4 +1,4 @@
-angular.module("App")
+angular.module('App')
     .config(['config', 'pathProvider', function (config, pathProvider) {
 
         /**

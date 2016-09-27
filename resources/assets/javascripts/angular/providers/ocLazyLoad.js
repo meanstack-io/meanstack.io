@@ -1,4 +1,4 @@
-angular.module("App")
+angular.module('App')
     .config(['$ocLazyLoadProvider', function ($ocLazyLoadProvider) {
 
         /**

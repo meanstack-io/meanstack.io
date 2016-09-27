@@ -1,4 +1,4 @@
-angular.module("App")
+angular.module('App')
     .config(['routeProvider', '$stateProvider', '$urlRouterProvider', 'config',
         function (routeProvider, $stateProvider, $urlRouterProvider, config) {
 
@@ -12,17 +12,17 @@ angular.module("App")
              */
             $stateProvider
                 .state('404', {
-                    templateNamespace: "error/404",
+                    templateNamespace: 'error/404',
                     data: {title: 'Page not found'}
                 })
 
                 .state('403', {
-                    templateNamespace: "error/403",
+                    templateNamespace: 'error/403',
                     data: {title: 'Not authorized'}
                 })
 
                 .state('500', {
-                    templateNamespace: "error/500",
+                    templateNamespace: 'error/500',
                     data: {title: 'Internal server error'}
                 });
 
