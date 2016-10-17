@@ -8,108 +8,51 @@
  */
 var gulp = require('gulp'),
     meanstack = require('meanstack/lib/gulp'),
-    path = {
-        dist: './public/',
-        src: './resources/assets/',
-        bower: './resources/assets/bower/',
-        angular: './resources/assets/javascripts/angular/',
-        meanstack: './node_modules/meanstack/'
-    };
+    assets = require('./resources/assets/gulp.assets');
 
 gulp.task('fonts', function () {
     return meanstack.copy(
-        [
-            path.bower + 'bootstrap-sass/assets/fonts/bootstrap/*.{otf,eot,svg,ttf,woff,woff2}',
-            path.src + 'fonts/**/*.{otf,eot,svg,ttf,woff,woff2}'
-        ],
-        path.dist + 'fonts/'
+        assets.fonts.src,
+        assets.fonts.dist
     );
 });
 
-
 gulp.task('images', function () {
     return meanstack.image(
-        [
-            path.src + 'images/**.{png,jpg,jpeg,ico}'
-        ],
-        path.dist + 'images/'
+        assets.images.src,
+        assets.images.dist
     );
 });
 
 gulp.task('style', function () {
     return meanstack.style(
-        [
-            path.src + 'stylesheets/sass/main.scss'
-        ],
-        path.dist + 'stylesheets/',
-        {
-            concat: true
-        }
+        assets.style.src,
+        assets.style.dist,
+        assets.style.options
     );
 });
 
 gulp.task('dependencies', function () {
     return meanstack.script(
-        [
-            path.bower + 'jquery/dist/jquery.js',
-            path.bower + 'bootstrap-sass/assets/javascripts/bootstrap.js',
-            path.bower + 'angular/angular.js',
-            path.bower + 'angular-ui-router/release/angular-ui-router.js',
-            path.bower + 'oclazyload/dist/ocLazyLoad.js',
-
-            // MEANStack Modules angularjs
-            path.meanstack + 'lib/angular/modules/path.js',
-            path.meanstack + 'lib/angular/modules/route.js'
-
-            // Application
-            //
-        ],
-        path.dist + 'javascripts/',
-        {
-            jshint: false,
-            concat: true,
-            name: 'dependencies.js'
-        }
+        assets.dependencies.src,
+        assets.dependencies.dist,
+        assets.dependencies.options
     );
 });
 
 gulp.task('angular', function () {
     return meanstack.script(
-        [
-            path.angular + 'app.js',
-            path.angular + 'config.js',
-            path.angular + 'providers/**/*.js',
-            path.angular + 'factory/**/*.js',
-            path.angular + 'services/**/*.js',
-            path.angular + 'directives/**/*.js',
-            path.angular + 'routes.js',
-            path.angular + 'run.js',
-            path.angular + 'controllers/app/**/*.js'
-        ],
-        path.dist + 'javascripts/',
-        {
-            jshint: true,
-            concat: true,
-            name: 'angular.js'
-        }
+        assets.angular.src,
+        assets.angular.dist,
+        assets.angular.options
     );
 });
 
 gulp.task('controllers', function () {
     return meanstack.script(
-        [
-            path.angular + 'controllers/partials/**/*.js'
-        ],
-        path.dist + 'javascripts/controllers/',
-        {
-            jshint: true,
-            concat: false,
-            sourcemaps: {
-                write: {
-                    dir: '../maps'
-                }
-            }
-        }
+        assets.controllers.src,
+        assets.controllers.dist,
+        assets.controllers.options
     );
 });
 
@@ -117,7 +60,7 @@ gulp.task('controllers', function () {
  * Clear directory
  */
 gulp.task('clean', function () {
-    return meanstack.clean(path.dist);
+    return meanstack.clean(assets.clean);
 });
 
 /**
@@ -152,16 +95,14 @@ gulp.task('bs-reload', function () {
  * Init browserSync
  */
 gulp.task('browserSync', function () {
-    meanstack.browserSync.init({
-        proxy: "http://localhost:8000"
-    });
+    meanstack.browserSync.init(assets.browserSync);
 });
 
 /**
  * Gulp Watch
  */
 gulp.task('watch', ['default', 'browserSync'], function () {
-    gulp.watch(path.src + '/stylesheets/**', ['style']);
-    gulp.watch(path.src + '/javascripts/**', ['angular', 'controllers']);
-    gulp.watch('./resources/views/**', ['bs-reload']);
+    (assets.watch).forEach(function (obj) {
+        gulp.watch(obj.src, obj.task);
+    });
 });
