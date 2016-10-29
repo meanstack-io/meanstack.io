@@ -110,7 +110,7 @@ var assets = {
             path.angular + '/factory/**/*.js',
             path.angular + '/services/**/*.js',
             path.angular + '/directives/**/*.js',
-            path.angular + '/routes.js',
+            path.angular + '/routes/**/*.js',
             path.angular + '/run.js',
             path.angular + '/controllers/app/**/*.js'
         ],
