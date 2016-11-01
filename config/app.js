@@ -9,7 +9,7 @@ module.exports = {
      */
     'name': 'MEANStack.io',
     'description': 'bringing together the best of MEAN MongoDB, Express, AngularJS and Node.js',
-    'version': "0.3.5",
+    'version': "0.3.9",
 
     /*
      |--------------------------------------------------------------------------
@@ -47,12 +47,6 @@ module.exports = {
         'meanstack/lib/cookieParser/CookieParserServiceProvider',
         // 'meanstack/lib/database/DatabaseServiceProvider',
         'meanstack/lib/response/ResponseServiceProvider',
-        'meanstack/lib/mail/MailServiceProvider',
-
-        /*
-         * Package Service Providers...
-         */
-        //
 
         /*
          * Application Service Providers...
