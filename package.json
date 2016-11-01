@@ -1,6 +1,6 @@
 {
   "name": "meanstack.io",
-  "version": "0.3.8",
+  "version": "0.3.9",
   "description": "MEANStack.io bringing together the best of MEAN MongoDB, Express, AngularJS and Node.js",
   "repository": {
     "type": "git",
@@ -25,7 +25,7 @@
   },
   "homepage": "http://meanstack.io",
   "dependencies": {
-    "meanstack": "^0.3.8"
+    "meanstack": "^0.3.9"
   },
   "devDependencies": {
     "chai": "^3.5.0",
