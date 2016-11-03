@@ -9,7 +9,7 @@ module.exports = {
      */
     'name': 'MEANStack.io',
     'description': 'bringing together the best of MEAN MongoDB, Express, AngularJS and Node.js',
-    'version': "0.3.9",
+    'version': "0.3.10",
 
     /*
      |--------------------------------------------------------------------------
