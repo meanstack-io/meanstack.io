@@ -2,5 +2,6 @@
 node_modules
 public
 resources/assets/bower
+resources/assets/javascripts/angular/config.js
 .env.js
 log/*.log
