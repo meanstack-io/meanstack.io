@@ -58,7 +58,12 @@ var assets = {
         ],
         dist: path.dist + '/stylesheets/',
         options: {
-            concat: true
+            concat: true,
+            sourcemaps: {
+                write: {
+                    dir: './maps'
+                }
+            }
         }
     },
 
@@ -89,7 +94,12 @@ var assets = {
         options: {
             jshint: false,
             concat: true,
-            name: 'dependencies.js'
+            name: 'dependencies.js',
+            sourcemaps: {
+                write: {
+                    dir: './maps'
+                }
+            }
         }
     },
 
@@ -118,7 +128,12 @@ var assets = {
         options: {
             jshint: true,
             concat: true,
-            name: 'angular.js'
+            name: 'angular.js',
+            sourcemaps: {
+                write: {
+                    dir: './maps'
+                }
+            }
         }
     },
 
@@ -137,7 +152,12 @@ var assets = {
         dist: path.dist + '/javascripts/controllers/',
         options: {
             jshint: true,
-            concat: false
+            concat: false,
+            sourcemaps: {
+                write: {
+                    dir: './maps'
+                }
+            }
         }
     },
 
