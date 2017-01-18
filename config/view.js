@@ -14,18 +14,70 @@ module.exports = {
      | View Path
      |--------------------------------------------------------------------------
      |
+     | A directory or an array of directories for the application's views. If an
+     | array, the views are looked up in the order they occur in the array.
      |
      */
     'path': path.resolve(__dirname, '../resources/views'),
 
     /*
      |--------------------------------------------------------------------------
-     | View public
+     | View Public [Optional]
      |--------------------------------------------------------------------------
      |
+     | Static files
+     |  http://expressjs.com/pt-br/api.html#express.static
+     |  http://expressjs.com/en/starter/static-files.html
      |
      */
-    'static': path.join(__dirname, '../public'),
+    'static': {
+        'path': path.join(__dirname, '../public'),
+        'options': {
+            'maxAge': 0
+        }
+    },
+
+    /*
+     |--------------------------------------------------------------------------
+     | View cache [Optional]
+     |--------------------------------------------------------------------------
+     |
+     | Enables view template compilation caching.
+     | Note: true in production, otherwise undefined.
+     |  http://expressjs.com/pt-br/api.html#app.settings.table
+     |
+     */
+    //'cache': true,
+
+    /*
+     |--------------------------------------------------------------------------
+     | View compression [Optional]
+     |--------------------------------------------------------------------------
+     |
+     | Node.js compression middleware.
+     |  The following compression codings are supported:
+     |    - deflate
+     |    - gzip
+     |
+     | https://github.com/expressjs/compression
+     |
+     */
+    'compression': {
+        'active': true
+    },
+
+    /*
+     |--------------------------------------------------------------------------
+     | "X-Powered-By: Express" [Optional]
+     |--------------------------------------------------------------------------
+     |
+     | Enables the "X-Powered-By: Express" HTTP header.
+     | In production it is highly recommended to disable.
+     | Default True.
+     |  http://expressjs.com/pt-br/api.html#app.settings.table
+     |
+     */
+    // 'x-powered-by': true,
 
     /*
      |--------------------------------------------------------------------------
