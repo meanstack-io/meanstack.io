@@ -20,5 +20,16 @@ angular.module('App')
          */
         route: {
             namespace: 'api'
+        },
+
+        /**
+         * Configuration module meanstack.metaTags
+         * === Set values default for ENV ===
+         *
+         */
+        metaTags: {
+            'robots': {
+                'value': 'noindex, nofollow'
+            }
         }
     });
