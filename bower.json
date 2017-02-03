@@ -23,11 +23,10 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.5.8",
-    "angular-ui-router": "~0.2.18",
-    "bootstrap-sass": "^3.3.6",
-    "jquery": "~2.2.0",
-    "oclazyload": "~1.0.9",
-    "angular-resource": "^1.5.8"
+    "bootstrap-sass": "^3.3.7",
+    "jquery": "^3.1.1",
+    "oclazyload": "^1.0.9",
+    "angular-ui-router": "^0.4.2",
+    "angular": "^1.6.1"
   }
 }
