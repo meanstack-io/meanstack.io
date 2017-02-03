@@ -110,17 +110,16 @@ module.exports = {
      |   Documentation: https://github.com/tj/connect-redis
      |
      | Example:
-     |  driverSessionStore: 'connect-redis',
+     |  driverStore: 'connect-redis',
      |
      |  store: {
      |      host: 'localhost',
-     |      port: 8543,
-     |      ...
+     |      port: 6379
      |  }
      */
     // driverStore: 'connect-redis',
 
-    // store: {}
+    // store: {},
 
     /*
      |--------------------------------------------------------------------------
