@@ -85,7 +85,8 @@ var assets = {
 
             // MEANStack Modules angularjs
             path.meanstack + '/lib/angular/modules/path.js',
-            path.meanstack + '/lib/angular/modules/route.js'
+            path.meanstack + '/lib/angular/modules/route.js',
+            path.meanstack + '/lib/angular/modules/metaTags.js'
 
             // Application
             //
