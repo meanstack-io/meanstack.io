@@ -1,6 +1,6 @@
 {
   "name": "meanstack.io",
-  "version": "0.3.14",
+  "version": "0.4.0",
   "description": "MEANStack.io bringing together the best of MEAN MongoDB, Express, AngularJS and Node.js",
   "repository": {
     "type": "git",
@@ -8,6 +8,7 @@
   },
   "scripts": {
     "build": "bower install && gulp",
+    "gulp": "./node_modules/.bin/gulp",
     "start": "NODE_ENV=development nodemon index",
     "test": "mocha"
   },
@@ -16,7 +17,11 @@
     "mean",
     "framework",
     "framework meanstack",
-    "framework mean"
+    "framework mean",
+    "AngularJS",
+    "NodeJS",
+    "Express",
+    "MongoDB"
   ],
   "author": "Rafael Pegorari <rafapegorari@gmail.com>",
   "license": "MIT",
@@ -25,7 +30,7 @@
   },
   "homepage": "http://meanstack.io",
   "dependencies": {
-    "meanstack": "^0.3.14"
+    "meanstack": "^0.4.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
