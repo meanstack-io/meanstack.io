@@ -1,87 +1,40 @@
 # MEANStack.io
 *bringing together the best of MEAN MongoDB, Express, AngularJS and Node.js*
 
+[![Build Status](https://travis-ci.org/meanstack-io/meanstack.svg)](https://travis-ci.org/meanstack-io/meanstack)
+[![Coverage Status](https://coveralls.io/repos/github/meanstack-io/meanstack/badge.svg)](https://coveralls.io/github/meanstack-io/meanstack)
+[![npm](https://img.shields.io/npm/v/meanstack.svg)](https://www.npmjs.com/package/meanstack)
+[![npm](https://img.shields.io/npm/dm/meanstack.svg)](https://www.npmjs.com/package/meanstack)
+[![npm](https://img.shields.io/npm/l/meanstack.svg)](https://www.npmjs.com/package/meanstack)
+
+MEANStack.io is a web application framework with strategy geared to facilitate development.
+
 Is a solution full-stack JavaScript, develop on MongoDB, Express, AngularJS, Node.js and another stack of packages.
 
-MEANStack is a web application framework with strategy geared to facilitate development.
 
-## Prerequisites
-Node.js, MongoDB, Gulp, Bower, Nodemon and MEANStack-Client.
-
-### Install Node.js
-Installing Node.js via package manager access <a href="https://nodejs.org/en/download/package-manager/">https://nodejs.org/en/download/package-manager/</a>
-
-### Install MongoDB
-Installing MongoDB access <a href="https://docs.mongodb.org/manual/installation/">https://docs.mongodb.org/manual/installation/</a>
-
-### Update NPM
-Before we installed the Gulp, Bower and Nodemon we recommend updating the NPM.
+## Install, it's easy...
+* Update Npm and **Install** Gulp, Bower, Nodemon and MEANStack CLI.
 ```
-$ npm update -g npm
+$ npm update -g npm && npm install -g gulp bower nodemon meanstack-cli
 ```
 
-### Install Gulp
-```
-$ npm install -g gulp
-```
-
-### Install Bower
-```
-$ npm install -g bower
-```
-
-### Install Nodemon
-Nodemon is a utility that will monitor for any changes in your source and automatically restart your server. Perfect for development.
-```
-$ npm install -g nodemon
-```
-
-### Install MEANStack-Client
-```
-$ npm install -g meanstack-cli
-```
-
-## Getting Started
-Two steps up its application.
-
-###Create your application
+* **Create** your application.
 ```
 $ meanstack new <path_app>
 ```
-Will be cloned the repository "https://github.com/meanstack-io/meanstack.io" after will run "npm install", "bower install", "cp .env.example.js .env.js" and "gulp". 
 
-
-### Listening server
-Serve the application.
+* **Start** your application.
 ```
-$ meanstack serve
+$ cd <path_app> && meanstack serve
 ```
 
-### Common installation errors
-Some common errors already solved. An error has occurred in the installation? Please let us know.
-https://github.com/meanstack-io/meanstack.io/wiki/Common-installation-errors
-
-### Configuration
-All the MEANStack framework configuration is in the "config" directory.
-
-#### Accessing Configuration Values
-```js
-$value = require('meanstack').config.get('mail').smtp;
-```
-Where "mail" is the configuration file and "stmp" the object.
-
-### Environment Configuration
-By default the installation of your application is copied the file "env.example.js" and pasted with the name "env.js".
-
-Your path can be configured in "config/app.js" => env.
-
-### Database
+## Database
 By default the connection provider with MongoDB is disabled by not being configured the connection.
 
-#### Configure
+### Configure
 Edit the file "env.js" stating the details of your connection.
 
-#### Enable provider
+### Enable provider
 Edit the file "config/app.js" => providers, uncomment the line 'meanstack/lib/database/DatabaseServiceProvider'.
 
 Result
@@ -95,6 +48,12 @@ Result
     ...
 ]
 ```
+
+## Common installation errors
+Some common errors already solved. An error has occurred in the installation? Please let us know.
+https://github.com/meanstack-io/meanstack.io/wiki/Common-installation-errors
+
+
 ## Documentation
 Documentation can be found on the [MEANStack.io](http://meanstack.io)
 

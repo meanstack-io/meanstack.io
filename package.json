@@ -30,7 +30,7 @@
   },
   "homepage": "http://meanstack.io",
   "dependencies": {
-    "meanstack": "^0.4.0"
+    "meanstack": "~0.4"
   },
   "devDependencies": {
     "chai": "^3.5.0",
@@ -38,5 +38,8 @@
     "gulp": "^3.9.0",
     "mocha": "^2.5.3",
     "nodemon": "^1.10.2"
+  },
+  "engines": {
+    "node": ">= 0.10.0"
   }
 }
