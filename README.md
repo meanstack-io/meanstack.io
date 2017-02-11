@@ -66,4 +66,4 @@ MEANStack-Client (Client) - https://github.com/meanstack-io/meanstack-cli
 
 ## Copyright & License
 
-Copyright © 2016 MEANStack.io - Licensed under [MIT](https://github.com/meanstack-io/meanstack.io/blob/master/License).
+Copyright © 2017 MEANStack.io - Licensed under [MIT](https://github.com/meanstack-io/meanstack.io/blob/master/License).
